@@ -5,12 +5,12 @@ import pickle
 import pandas as pd
 import requests
 
-api_key= os.getenv("TMDB_API_KEY")
+api_key= st.secrets["TMDB_API_KEY"]
 
 def fetch_poster(movie_id):
     response = requests.get('https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=en-US')
     data = response.json()
-    #print(data)
+    print(data)
     return "https://image.tmdb.org/t/p/w185/" + data['poster_path']
 
 
